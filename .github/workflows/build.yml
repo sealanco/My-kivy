@@ -20,9 +20,9 @@ jobs:
         with:
           python-version: '3.11'
       - name: Accept Android SDK Licenses
-      run: |
-        yes | ~/.buildozer/android/platform/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses || true
-        yes | ~/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager --licenses || true
+        run: |
+          yes | ~/.buildozer/android/platform/android-sdk/cmdline-tools/latest/bin/sdkmanager --licenses || true
+          yes | ~/.buildozer/android/platform/android-sdk/tools/bin/sdkmanager --licenses || true
     
       - name: Install system dependencies
         run: |
