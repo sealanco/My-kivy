@@ -24,16 +24,16 @@ jobs:
           restore-keys: |
             buildozer-global-${{ runner.os }}-
 
-      - name: Build APK
-        uses: ArtemSBulgakov/buildozer-action@v1
-        id: buildozer
-        with:
-          command: buildozer android debug
-          buildozer_version: stable
+      - name: Build APK with Docker
+        run: |
+          docker run --rm \
+            --volume "${{ github.workspace }}":/home/user/hostcwd \
+            --volume ~/.buildozer:/home/user/.buildozer \
+            ghcr.io/kivy/buildozer:latest android debug
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: ${{ steps.buildozer.outputs.filename }}
+          path: bin/*.apk
           
