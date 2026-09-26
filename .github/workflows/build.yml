@@ -29,7 +29,7 @@ jobs:
         timeout-minutes: 20
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
+          sudo apt-get install -y --no-install-recommends \
             build-essential git cmake ninja-build libsqlite3-dev sqlite3 \
             bzip2 libbz2-dev zlib1g-dev libssl-dev openssl libgdbm-dev \
             libgdbm-compat-dev liblzma-dev libffi-dev uuid-dev libreadline-dev \
