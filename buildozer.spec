@@ -45,7 +45,7 @@ android.api = 33
 android.minapi = 21
 
 # (str) Android NDK architecture to build for (arm64-v8a, armeabi-v7a, x86, x86_64)
-android.archs = arm64-v8a, armeabi-v7a
+android.archs = arm64-v8a
 
 # (bool) Enable AndroidX support
 android.enable_androidx = True
