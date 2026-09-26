@@ -5,7 +5,7 @@ class HelloWorldApp(App):
     def build(self):
         # Returns a Label widget with the Hello World text and a larger font size
         return Label(
-            text="Hello, World!",
+            text="Olá mãe!\nDaqui é o Sérginho\na escrever o seu primeiro\nprograma.",
             font_size='32sp'
         )
 
