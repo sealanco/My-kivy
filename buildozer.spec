@@ -44,7 +44,7 @@ version = 0.1
 # comma separated e.g. requirements = sqlite3,kivy
 
 # Change this in buildozer.spec:
-requirements = python3==3.11.9,kivy
+requirements = python3,kivy,certifi,chardet,filetype,idna,requests,six,urllib3
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
