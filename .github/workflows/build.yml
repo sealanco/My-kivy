@@ -36,7 +36,7 @@ jobs:
             libncurses5-dev libncursesw5-dev zip unzip autoconf \
             libtool libtool-bin libltdl-dev pkg-config ffmpeg libsdl2-dev libsdl2-image-dev \
             libsdl2-mixer-dev libsdl2-ttf-dev libportmidi-dev libswscale-dev \
-            libavformat-dev libavcodec-dev m4
+            libavformat-dev libavcodec-dev m4 lld
 
       - name: Install Python Build Tools
         run: |
@@ -49,7 +49,7 @@ jobs:
           BUILDOZER_ALLOW_ROOT: "1"
         run: |
           rm -rf .buildozer/android/platform/build-arm64-v8a
-          buildozer appclean
+          buildozer android clean
           buildozer -v android debug
 
       - name: Upload APK Artifact
