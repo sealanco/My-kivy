@@ -37,6 +37,8 @@ jobs:
           python -m pip install "cython<3.0.0" buildozer
 
       - name: Build APK with Buildozer
+        env:
+          BUILDOZER_ALLOW_ROOT: "1"
         run: |
           buildozer -v android debug
 
