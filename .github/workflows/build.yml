@@ -18,6 +18,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Accept Android SDK Licenses
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+    
           
       - name: Set up JDK 17
         uses: actions/setup-java@v5
@@ -45,6 +50,7 @@ jobs:
 
       - name: Build APK with Buildozer
         env:
+          ACCEPT_SDK_LICENSE: "True"
           ACLOCAL_PATH: /usr/share/aclocal
           BUILDOZER_ALLOW_ROOT: "1"
         run: |
