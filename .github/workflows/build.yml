@@ -53,9 +53,10 @@ jobs:
           ACCEPT_SDK_LICENSE: "True"
           ACLOCAL_PATH: /usr/share/aclocal
           BUILDOZER_ALLOW_ROOT: "1"
+          APP_LOG_LEVEL: "2"
         run: |
           rm -rf .buildozer/
-          buildozer -s android debug --log_level=2
+          buildozer -v android debug
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
