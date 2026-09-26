@@ -41,6 +41,7 @@ jobs:
           ACLOCAL_PATH: /usr/share/aclocal
           BUILDOZER_ALLOW_ROOT: "1"
         run: |
+          rm -rf .buildozer/android/platform/build-arm64-v8a
           buildozer appclean
           buildozer -v android debug
 
