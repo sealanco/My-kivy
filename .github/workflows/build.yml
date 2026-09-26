@@ -27,7 +27,7 @@ jobs:
             bzip2 libbz2-dev zlib1g-dev libssl-dev openssl libgdbm-dev \
             libgdbm-compat-dev liblzma-dev libffi-dev uuid-dev libreadline-dev \
             libncurses5-dev libncursesw5-dev zip unzip openjdk-17-jdk autoconf \
-            libtool pkg-config ffmpeg libsdl2-dev libsdl2-image-dev \
+            libtool libtool-bin pkg-config ffmpeg libsdl2-dev libsdl2-image-dev \
             libsdl2-mixer-dev libsdl2-ttf-dev libportmidi-dev libswscale-dev \
             libavformat-dev libavcodec-dev m4
 
@@ -38,6 +38,7 @@ jobs:
 
       - name: Build APK with Buildozer
         env:
+          ACLOCAL_PATH: /usr/share/aclocal
           BUILDOZER_ALLOW_ROOT: "1"
         run: |
           buildozer -v android debug
