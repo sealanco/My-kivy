@@ -46,9 +46,11 @@ jobs:
 
 
       - name: Build APK with Buildozer
+        env:
+          BUILDOZER_ALLOW_ROOT: "1"
         run: |
           rm -rf .buildozer
-          sudo -u runner buildozer -v android debug
+          buildozer -s android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
