@@ -1,4 +1,4 @@
-name: Build Kivy Android APK (Docker)
+name: Build Kivy Android APK (Official Docker)
 
 on:
   push:
@@ -16,16 +16,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build with Buildozer Action
-        uses: ArtemSBulgakov/buildozer-action@v1
-        id: buildozer
-        with:
-          command: buildozer android debug
-          buildozer_version: stable
+      - name: Build APK using Official Buildozer Image
+        run: |
+          docker run --rm \
+            --volume "${{ github.workspace }}":/home/user/hostcwd \
+            ghcr.io/kivy/buildozer:latest \
+            android debug
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: package-debug-apk
-          path: ${{ steps.buildozer.outputs.filename }}
+          path: bin/*.apk
+          if-no-files-found: error
           
