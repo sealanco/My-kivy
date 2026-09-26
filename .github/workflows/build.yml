@@ -42,12 +42,13 @@ jobs:
             libswscale-dev \
             libavformat-dev \
             libavcodec-dev
-          pip install --upgrade pip buildozer cython
+          pip install --upgrade pip buildozer "cython<3.0.0"
+
 
       - name: Build APK with Buildozer
         run: |
           rm -rf .buildozer
-          buildozer android debug
+          buildozer -v android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
