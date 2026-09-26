@@ -10,6 +10,6 @@ class HelloWorldApp(App):
             valign="middle",
             font_size='32sp'
         )
-label.bind(size=label.setter("text_size"))
+
 if __name__ == '__main__':
     HelloWorldApp().run()
